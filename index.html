@@ -1,0 +1,4780 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Automation Philosophy</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			h1, h2 {
+				flex: initial;
+				font-family: monospace !important;
+				text-transform: none !important;
+				font-size: 7vh !important;
+				font-weight: normal !important;
+				line-height: 1em !important;
+				color: navy !important;
+				text-align: left !important;
+				width: 100%;
+				margin: 0;
+				padding-left: 5vw;
+				padding-right: 5vw;
+				padding-top: 5vh;
+				padding-bottom: 1vh;
+			}
+			h2 {
+				font-size: 6vh !important;
+				color: red !important;
+				padding-top: 0vh;
+			}
+			p {
+				flex: initial;
+				text-align: left !important;
+				padding-left: 5vw;
+			}
+			ul, ol {
+				flex: auto;
+				display: block;
+				margin: 0 !important;
+				align-items: left;
+				font-size: 4.5vh !important; 
+				margin-left: 5vw !important;
+				padding-left: 2.5vw !important;
+				padding-right: 0vw !important;
+				background: transparent !important;
+			}
+			li {
+				margin-bottom: 0.25em !important;
+				background: transparent !important;
+			}
+			ul.inline li {
+				display: inline-block;
+			}
+			section {
+				display: flex !important;
+				flex-direction: column;
+				justify-content: left;
+				align-items: left;
+
+				height: 100%;
+				top: 0 !important;
+				left: 0 !important;
+				margin: 0 !important;
+				padding: 0 !important;
+			/*	border: 10px solid red; */
+			}
+			section section {
+			/*	border: 10px solid green; */
+			}
+			section.filter {
+				background: rgba(255,255,255,0.5);
+				border-radius: 5vh;
+			}
+			section.filter a {
+				color: navy;
+			}
+			section.filter code {
+				color: maroon;
+			}
+			section.point:before {
+				content: 'Philosophy:';
+				font-family: sans-serif !important;
+				color: yellow !important;
+				font-size: 5vh !important;
+				position: absolute !important;
+				top: 2vh;
+				left: 5vw;
+			}
+			/*
+			section.lesson:before {
+				content: 'What I Learned';
+				font-family: monospace !important;
+				text-transform: none !important;
+				font-size: 8vh !important;
+				font-weight: normal !important;
+				line-height: 1em !important;
+				color: navy !important;
+				position: absolute !important;
+				top: 2vh;
+				left: 5vw;
+			}
+			*/
+			section.point {
+				justify-content: center;
+			}
+			.point-text {
+				display: inline-block;
+				font-family: monospace  !important;
+				color: rgb(255,0,0);
+				font-size: 8vh !important;
+				font-weight: normal;
+				text-shadow: 0.05em 0.05em 0 black; 
+				line-height: 1.25em !important;
+				padding: 0;
+				margin: 0;
+			}
+			.point-text .small {
+				font-size: 4vh !important;
+				line-height: 1em !important;
+				font-weight: normal;
+				color: rgba(192,0,0,1);
+				text-shadow: 0.05em 0.05em 0 rgba(0,0,0,0.5); 
+			}
+			.point-subtext {
+				margin-top: 10vh !important;
+				font-family: monospace !important;
+				color: silver;
+				font-size: 4vh !important;
+			/*	text-shadow: 0.25vh 0.25vh 0 silver; */
+				line-height: 1em;
+				position: absolute !important;
+				width: 75%;
+				bottom: 1vh;
+				right: 5vw;
+				text-align: right;
+			}
+			.reveal section pre {
+				height: 70vh;
+				margin-top: 15vh;
+			}
+			.reveal section pre code {
+				height: 70vh !important;
+				max-height: 70vh !important;
+			}
+			li code {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- Title Slide -->
+				<section
+					data-transition="fade"
+					data-background-color="white"
+					data-background-image="img/socrates.jpg"
+					data-background-size="cover"
+					data-background-position="top center"
+					data-background-repeat="no-repeat"
+					>
+					<h1>
+						Test<br/>
+						Automation<br/>
+						<strong>Philosophy</strong>
+					</h1>
+				</section>
+
+				<!-- Navigation Instructions -->
+				<section class=filter
+					data-transition="slide-in fade-out"
+					data-background-color="white"
+					data-background-image="img/old-map.png"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					>
+					<h1> Navigation </h1>
+					<ul>
+						<li> 
+							Slideshow created using <a href="http://www.revealjs.com">Reveal.js</a> 
+						</li>
+						<li> 
+							Slides are arranged in a grid, not just a linear flow 
+						</li>
+						<li> 
+							Press <code>space bar</code> to step through as intended 
+						</li>
+						<li class="fragment fade-in"> 
+							Press <code>F</code> to view full screen
+						</li>
+						<li class="fragment fade-in"> 
+							Press <code>ESC</code> to view the deck overview 
+						</li>
+						<li class="fragment fade-in"> 
+							Press <code>arrow-keys</code> to quickly navigate the grid 
+						</li>
+					</ul>
+				</section>
+
+				<!-- Organization and Purpose -->
+				<section>
+
+					<!-- Organization -->
+					<section 
+						data-transition="slide-in fade-out"
+						data-background-color="white"
+						data-background-image="img/old-book-page.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.75"
+						>
+						<h1> Organization </h1>
+						<ul>
+							<li>
+								Presented as a series short-stories told in bullet form
+								<ul>
+									<li class="fragment fade-in-then-semi-out">
+										The <strong>Setting</strong> - where I was 
+									</li>
+									<li class="fragment fade-in-then-semi-out">
+										The <strong>Task</strong> - what I was doing
+									</li>
+									<li class="fragment fade-in-then-semi-out">
+										The <strong>Problem</strong> - the source of the pain
+									</li>
+									<li class="fragment fade-in-then-semi-out">
+										The <strong>Solution</strong> - how I resolved it
+									</li>
+									<li class="fragment fade-in-then-semi-out">
+										The <strong>Lesson</strong> - what it taught me
+									</li>
+									<li class="fragment fade-in-then-semi-out">
+										The <strong>Philosophy</strong> - principles to live by
+									</li>
+								</ul>
+							</li>
+							<li class="fragment fade-in">
+								Sprinkled with a touch of humor to keep it fun!
+							</li>
+							<li class="fragment fade-in">
+								Apologies in advance if my humor isn't funny . . .
+							</li>
+						</ul>
+						<aside class=notes></aside>
+					</section>
+
+					<!-- Purpose -->
+					<section 
+						data-transition="fade"
+						data-background-color="white"
+						data-background-image="img/old-book-page.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.75"
+						>
+						<h1> Purpose </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Allow experienced team mates to commiserate
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Allow junior team mates to learn without
+								having to suffer what we suffered
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Establish a common set of guiding principles
+								that we can all agree upon
+							</li>
+						</ul>
+						<aside class=notes></aside>
+					</section>
+
+				</section>
+
+				<!-- About Me -->
+				<section>
+
+					<!-- Headshot -->
+					<section
+						data-autoslide="2000"
+						data-transition="slide-in none-out"
+						data-background-color="black"
+						data-background-image="img/jma-headshot.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+
+					<!-- Text -->
+					<section
+						data-transition="fade-in slide-out"
+						data-background-color="black"
+						data-background-image="img/jma-headshot.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						style="color: white"
+						>
+						<h1 style="color: yellow !important"> Who Am I? </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								John Arrowwood 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Have been coding since I was a child 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								First tech job right out of high school 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								One foot on the DEV side, one on the QA side, since 1996 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Worked in many companies, large and small 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								In a lot of different industries
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Privileged to have worked with some very smart people!
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								<a href="http://www.Arrowwood.org/resume/">arrowwood.org/resume</a> 
+							</li>
+							<li class="fragment fade-in">
+								But enough about me!
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+
+				</section>
+
+				<!-- Intel Video Phone -->
+				<section>
+
+					<!-- Animated Image -->
+					<section
+						data-background-color="black"
+						data-background-image="https://media.giphy.com/media/26gR2l3wbvlJjldFS/giphy.mp4"
+						data-background-size="contain"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+
+					<!-- The Setting -->
+					<section
+						data-autoslide="2000"
+						data-background-color="white"
+						data-background-image="img/once-upon-a-time.png"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section 
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/once-upon-a-time.png"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<h1> And So The Story Begins </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								A long time ago . . . in 1996
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								In a galaxy far, far away - 
+								<a href="https://exploreintel.com/campuses/oregon" target="_new">Hillsboro, Oregon</a>
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								There was once a giant chip manufacturer - 
+								<a href="https://www.intel.com/" target="_new">Intel</a>
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Who wanted to entice users to upgrade their computers
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								So they created 
+								<a href="https://www.youtube.com/watch?v=_Sp8eK_VovU" target="_new">Intel Video Phone</a>
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Because live h.264 video demanded a fast, modern CPU!
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+
+					<!-- The Task -->
+					<section
+						data-autoslide="2000"
+						data-background-color="white"
+						data-background-image="img/inside-a-computer.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section 
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/inside-a-computer.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<h1> Testing </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								It was my first QA job
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Built PCs, installed software, wrote test specs,
+								manual testing, bug reporting, verification, etc.
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Ended up in charge of the defect system, PVCS Tracker
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Ran the daily <em>attempt to get out of fixing anything</em> 
+								meeting, a.k.a. the bug scrub
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								And generated the slides for the daily management meeting
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+
+					<!-- The Problem -->
+					<section 
+						data-autoslide="2000"
+						data-background-color="white"
+						data-background-image="img/defect-rate.png"
+						data-background-size="contain"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section 
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/defect-rate.png"
+						data-background-size="contain"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<h1> The Daily Slides </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Every day, I had to pull data out of Tracker
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Create a report
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Paste it into a slide
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								And email it to the appropriate person
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								This took between 30-60 minutes a day
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								And was seen for less than 10 seconds
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+
+					<!-- The Solution -->
+					<section 
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/marvin-background.jpg"
+						data-background-size="cover"
+						data-background-position="bottom right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/marvin-background.jpg"
+						data-background-size="cover"
+						data-background-position="bottom right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<h1> First Foray into Automation </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Thought to myself: 
+								"there <em>must</em> be a better way to produce these slides!"
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Found a free Windows automation tool
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It could only set window focus and send keystrokes
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It was tricky, but I eventually got it to work
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Now, what was once a tedious manual process
+								could be accomplished perfectly just in a few minutes
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned<br/>about Testing </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Testing is a lot like gambling . . .
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Most of the time, you do something and nothing happens, 
+								it all works as expected
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Every once in a while, you are rewarded by finding a bug!
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It's challenging, fun . . . and a little addictive
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								When you get good at it, you start finding bugs everywhere, 
+								even in software you aren't being paid to test!
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section 
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/apple.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/apple.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<div class=point-text>
+							<div class=small> Quality Professionals </div>
+							Think Different
+						</div>
+						<div class="point-subtext fragment fade-in">
+							Recognize it, develop it, celebrate it,<br/>take full advantage of it!
+						</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned<br/>about Manual Processes </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Ignorance guarantees mistakes
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Familiarity breeds contempt, or carelessness
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Complexity invites confusion
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								And a hundred other reasons why . . . 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								People <em>suck</em> at repetitive manual processes
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/oops.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/oops.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<div class=point-text>
+							Assume Fallability
+							<div class=small> When humans are involved, mistakes will be made </div>
+						</div>
+						<div class="point-subtext fragment fade-in">
+							Distrust is part of why<br/>
+							<em>Quality Professionals think different</em>
+						</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned<br/>about Automation </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Automation tools can be empowering, and liberating
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Or they can enslave you to a new master
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Automation is a whole different animal than manual testing
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It's hard to get it right
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								But very rewarding, once you do
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/back-pain.jpg"
+						data-background-size="cover"
+						data-background-position="bottom right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/back-pain.jpg"
+						data-background-size="cover%"
+						data-background-position="bottom right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+							<div class=point-text>
+								Automation
+								<div class=small> is a great way of </div>
+								reducing pain
+							</div>
+							<div class="point-subtext fragment fade-in">
+								It should not be <em>causing</em> more pain than it solves
+							</div>
+							<aside class="notes"></aside>
+					</section>
+					<section 
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/evil-lution.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/evil-lution.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+							<div class=point-text>
+								Automation is a <strong>Tool</strong>
+								<div class=small>a means to an end, not an end unto itself</div>
+							</div>
+							<div class="point-subtext fragment fade-in">
+								It should continuously <em>evolve</em> over time,<br> 
+								getting better with every iteration
+							</div>
+							<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned<br/>about Statistics </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Numbers tell stories - sometimes very useful ones
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								But they don't always tell the story you would think 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								<em>Find Rate</em> and <em>Fix Rate</em> work best in
+								an unchanging workload
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Which is not real-world testing
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								If testers are focused on stable areas, find rates are low
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Shift to testing newly released behavior, and find rates jump
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								You can't predict ship dates from the numbers alone
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/line-graph.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/line-graph.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<div class=point-text>
+							<div class=small> Metrics are useful for </div>
+							Decision Making
+							<div class=small> but only when they tell the whole truth </div>
+						</div>
+						<div class="point-subtext fragment fade-in">
+							When it comes to metrics, 
+							meet the <em>need</em>, 
+							not just the ask
+						</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned<br/>about Reporting </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Good reports enable good business decisions
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Generating reports has a cost associated with it
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								If no one is looking at the reports,<br/>
+								do we really need to create them?
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/imbalance.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/imbalance.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<div class=point-text>
+							<div class=small> Always make sure that </div>
+							Value <span class=small>outweighs</span> Cost
+						</div>
+						<div class="point-subtext fragment fade-in">
+							Have the conversation about<br/>
+							cost-benefit and return-on-investment
+						</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="https://media.giphy.com/media/3o6Mb5h1UQlrtoebK0/giphy.mp4"
+						data-background-size="120%"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="white"
+						data-background-image="img/bad-guy-on-phone.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section 
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/bad-guy-on-phone.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<h1> The Story Continues </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Fast forward to late 1997
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								I am working for Dynamics Research Corporation
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								They are building a telephone fraud detection system
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It is a time of much strife . . . 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Machine Learning is not exactly a thing (yet), so it is rule-based
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Java is not a thing (yet), so 
+								platform-independence means using an abstraction library
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="https://media.giphy.com/media/2ZYMiUi8IStBOH7Ivh/giphy.mp4"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="white"
+						data-background-image="img/building-plans.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/building-plans.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+							<h1> Repeatable Builds </h1>
+							<ul>
+								<li class="fragment fade-in-then-semi-out">
+									My first task at DRC was to test the in-house platform-abstraction library
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									Before I could test it, I had to build it
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									On NT, HPUX, and Solaris
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									The build was automated on each platform, but no orchestration
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									No Java means no Jenkins
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									I created my own tool to build in parallel and 
+									aggregate and colorize the reports
+								</li>
+							</ul>
+							<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+							<h1> What I Learned </h1>
+							<ul>
+								<li class="fragment fade-in-then-semi-out">
+									There's a reason why Jenkins exists! 
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									Doing things in parallel is a great time-saver
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									Working across heterogeneous systems can be a pain
+									without a tool (e.g. chef) to facilitate it
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									HTML is great for colorizing logs
+								</li>
+							</ul>
+							<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/questions-questions-bang.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/questions-questions-bang.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+							<div class=point-text>
+								<div class=small>
+									The first step in<br/>
+								</div>
+								<strong>Quality Assurance</strong><br>
+								<div class=small>
+									is ensuring that the team has a 
+								</div>
+								reliable, repeatable
+								<div class=small>
+									build and deployment process
+								</div>
+							</div>
+							<div class="point-subtext fragment fade-in">
+								You can't <em>assure</em> anything until you know<br/>
+								the bits you tested are the bits released!
+							</div>
+							<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="https://media.giphy.com/media/3uetGLYgad1OE/giphy.mp4"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/drip.jpg"
+						data-background-size="120%"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+							<h1> A Ridiculous Test </h1>
+							<ul>
+								<li class="fragment fade-in-then-semi-out">
+									While testing the UI, noticed random crashes
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									Could not find a reliable set of steps to reproduce
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									Without steps to reproduce, no one would look at it
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									Considered the possibility that it might be a memory leak
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									Used automation to move the window around until it crashed 
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									Proved the existence of the leak 
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									And provided a reliable way to reproduce it 
+								</li>
+							</ul>
+							<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Bugs can be <em>anywhere</em> 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Defects that can be reproduced are more likely to be fixed 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Always reduce it to the minimum steps to reproduce 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Automation lets me do more than I could without it 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/bugs.jpg"
+						data-background-size="cover"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/bugs.jpg"
+						data-background-size="cover"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<div class=point-text>
+							Test Everything
+							<div class=small> even if you only ever test it <strong>once</strong></small>
+						</div>
+						<div class="point-subtext fragment fade-in">
+							Because you never know where a severe defect will be hiding
+						</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="black"
+						data-background-image="https://media.giphy.com/media/NsBknNwmmWE8WU1q2U/giphy.mp4"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="white"
+						data-background-image="img/ann.png"
+						data-background-size="contain"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/ann.png"
+						data-background-size="contain"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<h1> NSFW </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Jumping ahead to 1999 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Working in a charming older building in Portland, OR 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								The company is called RuleSpace 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Their product is a web filtering engine for ISPs and employers
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Competitors at the time used URL blacklists or keyword filtering 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								RuleSpace used a Neural Network 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								As a result, it could keep up with the explosive growth of
+								the web, and not block legitimate content that used some
+								of the same keywords 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-background-color="white"
+						data-background-image="img/page-clusters.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section
+						data-background-color="white"
+						data-background-image="img/page-clusters.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+							<h1> Crawling the Web </h1>
+							<ul>
+								<li class="fragment fade-in-then-semi-out">
+									To test accuracy, need test data
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									Wrote a web crawler to gather massive 
+									amounts of data
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									Made it operate in parallel to generate load on the server
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									Wrote a web-based UI to support data labeling
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									Experimented with augmenting the model with word-pairings
+									for increased accuracy
+								</li>
+							</ul>
+							<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-transition="fade-in none-out"
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned<br/>about Machine Learning </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Machine Learning Models are <em>not</em> intelligent
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Although they are effective
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Most of the time
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								The rest of the time, they fail spectacularly!
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Revealing just how un-intelligent they are
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-transition="fade-in none-out"
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned<br/>about Machine Learning </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								They typically require training with massive amounts of <em>clean, unbiased</em> data
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Getting massive amounts of data is easy
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Getting clean data is slow, but doable
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Getting <em>massive amounts of clean data</em> is asking a lot
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-transition="fade-in none-out"
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned<br/>about Machine Learning </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Model training finds the shortest path to a solution
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It typically works by minimizing error
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It will gladly cheat, if you let it
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Which is why models are often so easy to defeat
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								And why building a robust model is hard
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-transition="fade-in none-out"
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned<br/>about Machine Learning </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Training data needs to be balanced
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								When it is not, the model typically gets good at the common case
+								at the expense of everything else
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Which is why, for example, facial recognition struggles with
+								minorities
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-transition="fade-in none-out"
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned<br/>about Machine Learning </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								The real-world is constantly changing, and most models
+								must be continually updated to maintain accuracy
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								<em>Perfection is impossible</em> &mdash;
+								No statistical model can achieve 100% accuracy on a real-world domain
+							<li class="fragment fade-in-then-semi-out">
+								Unless it models every detail of the underlying processes
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Many times, that means building a virtual universe . . .
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Good luck with that!
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/broken-glass-transparent.png"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/broken-glass-transparent.png"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<div class=point-text>
+							It's Always Broken
+							<div class=small> The only question is where, and how badly? </div>
+						</div>
+						<div class="point-subtext fragment fade-in">
+							Any software of sufficient complexity to be useful 
+							contains imperfections &mdash; especially Machine Learning models
+						</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned<br/>about Building Tools </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Building a custom tool to automate otherwise
+								manual processes can be a great boost to 
+								team productivity
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								The more time that is saved, the more value it provides
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It's fun to do, too!
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								HTML is great for quickly building a platform-independent UI
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section 
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/vintage-tools.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/vintage-tools.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<div class=point-text>
+							<div class=small> Save Time </div>
+							Build Tools
+						</div>
+						<div class="point-subtext fragment fade-in">
+							Manual processes are not just error-prone, they are slow - 
+							automation can solve both 
+						</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="black"
+						data-background-image="https://media.giphy.com/media/26DN0jWj2mNv6WwU0/giphy.mp4"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="white"
+						data-background-image="img/sdlc.jpg"
+						data-background-size="contain"
+						data-background-position="top right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/sdlc.jpg"
+						data-background-size="contain"
+						data-background-position="top right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<h1> Can We Build It? <span class="fragment fade-in">Yes We Can!</span></h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								It is 1999 &mdash; 
+								Bob the Builder is popular &mdash;
+								with my kids, anyway
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								I am working for a company that makes SDLC tools like 
+								version control managers and defect trackers
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								The company has changed names many times . . .
+								<ul class="inline sublist">
+								<li class="fragment fade-in-then-semi-out">Polytron</li> 
+								<li class="fragment fade-in-then-semi-out"> . . . Sage</li> 
+								<li class="fragment fade-in-then-semi-out"> . . . Maryland</li> 
+								<li class="fragment fade-in-then-semi-out"> . . . Intersolv</li> 
+								<li class="fragment fade-in-then-semi-out"> . . . Micro Focus</li> 
+								<li class="fragment fade-in-then-semi-out"> . . . Merant</li> 
+								<li class="fragment fade-in-then-semi-out"> . . . Serena</li> 
+								<li class="fragment fade-in-then-semi-out"> . . . and back to Micro Focus</li> 
+								</ul>
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								I worked there during the Merant years
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-transition="slide-in fade-out"
+						data-background-color="white"
+						data-background-image="img/servers.jpg"
+						data-background-size="50%"
+						data-background-position="top right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> Platform Testing </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								The PVCS Tracker tool was originally a thick client
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It was necessary to test it on Windows 95, 98, XP, NT, 2000, etc.
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It was difficult for developers to duplicate 
+								platform-specific bugs
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								There were also some bugs that could only be 
+								duplicated on a fresh install
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/servers.jpg"
+						data-background-size="50%"
+						data-background-position="top right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> Virtualization to the Rescue </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								VMware had just came out 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								I created VMs for the team for every available OS version 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Used non-persistent disks for reproducible test environments 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								I was an early adopter and strong advocate of the technology 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section class=lesson
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned<br/>about Test Systems </h1>
+							<ul>
+								<li class="fragment fade-in-then-semi-out">
+									Dirty test systems hide bugs - some only appear
+									the first time the software is run
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									Test system reset is an invaluable tool
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									Virtual machines eliminate the problem of "works on my machine"
+								</li>
+							</ul>
+							<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/dirty-boots.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/dirty-boots.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+							<div class=point-text>
+								Always test in a <br><strong>clean machine</strong>
+							</div>
+							<div class="point-subtext fragment fade-in">
+								Make your testing<br/>consistent and reproducible
+							</div>
+							<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section class=lesson
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned<br/>about Test Planning </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Large, complex systems mean tons of test cases
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								A test case for every code path is a huge N-dimensional matrix
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Tracking what is covered and what is not is
+								difficult
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It becomes nearly impossible when you start trying
+								to optimize away test cases by hand
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section 
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/stressed-businessman.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/stressed-businessman.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<div class=point-text>
+							<div class=small>
+								<strong>DO NOT</strong> try to hand-optimize your test cases
+							</div>
+							<strong>Test One Thing at a Time</strong>
+							<div class=small>
+								Even if that means some common functionality<br>
+								gets exercised more than once
+							</div>
+						</div>
+						<div class="point-subtext fragment fade-in">
+							Keep tests focused so they tell you exactly where the problem lies,
+							and so your tests don't get too complex to maintain
+						</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="black"
+						data-background-image="https://media.giphy.com/media/2Rsb37OI10TU4/giphy.mp4"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="white"
+						data-background-image="img/crash.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/crash.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<h1> Learning From Mistakes </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								It is early 2000 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								A time when many test automation projects 
+								were failing
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								The reasons were well documented at the time
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Merant had hired a hot-shot consultant whose first 
+								demo demonstrated part of the reason why
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								He had used record-and-playback, and made a bad assumption 
+								while recording 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section class=lesson
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned <br/> about Record-and-Playback </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Software systems can be complex 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Their behavior can change based on how you use it 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								There is no substitute for knowing the system 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Assumptions will usually come back to bite you 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Record and Playback is not for building real tests 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/controller.jpg"
+						data-background-size="cover"
+						data-background-position="top left"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/controller.jpg"
+						data-background-size="cover"
+						data-background-position="top left"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<div class=point-text>
+							<div class=small>
+								Identify your assumptions and
+							</div>
+							control everything
+							<div class=small>about the test execution </div>
+						</div>
+						<div class="point-subtext fragment fade-in">
+							<em>Every step . . .</em><br/>
+							Don't assume &mdash; ensure!
+						</div>
+						<aside class="notes"></aside>
+					</section>
+					<section 
+						data-autoslide="2000"
+						data-background-color="white"
+						data-background-image="img/tape-recorder-transparent.png"
+						data-background-size="50%"
+						data-background-position="bottom 55vh right 0"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/tape-recorder-transparent.png"
+						data-background-size="50%"
+						data-background-position="bottom 55vh right 0"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.5"
+						>
+						<div class=point-text>
+							<div class=small>
+								<u>Never</u> rely on
+							</div>
+							Record-and-Playback
+						</div>
+						<div class="point-subtext fragment fade-in">
+							It is not a viable long-term automation strategy
+						</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section 
+						data-background-color="black"
+						data-background-image="https://media.giphy.com/media/5q3NyUvgt1w9unrLJ9/giphy.mp4"
+						data-background-size="contain"
+						data-background-position=""
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section 
+						data-autoslide="2000"
+						data-background-color="white"
+						data-background-image="img/stopwatch.jpg"
+						data-background-size="cover"
+						data-background-position=""
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section 
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/stopwatch.jpg"
+						data-background-size="cover"
+						data-background-position=""
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<h1> Synchronization Problems </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out"> 
+								Frequently, test execution would fail just because the 
+								application under test did not react <em>instantaneously</em> 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Real-world delays highlighted people's innate assumptions 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Many people's first instinct was to add a fixed-length delay 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Instead, I built a collection of synchronization functions 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Our automation was significantly more reliable afterwards 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section class=lesson
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned <br/> about Complexity </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								GUI testing is inherently a parallel system interaction 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Parallel systems are complex and hard to predict 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								You can't expect someone to fully analyze and understand 
+								every possible outcome for every single interaction 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								The best way to ensure people's success is to give them tools 
+								and/or languages that handle the complexities for them 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/math-background.jpg"
+						data-background-size="cover"
+						data-background-position="bottom right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-background-color="black"
+						data-background-image="img/math-background.jpg"
+						data-background-size="cover"
+						data-background-position="bottom right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<div class=point-text>
+							Make Complex Things Simple
+						</div>
+						<div class="point-subtext fragment fade-in">
+							Hide the complexity so that<br/>
+							difficult things become easy,<br/>
+							and the impossible becomes possible
+						</div> 
+					</section>
+				</section>
+				<section>
+					<section 
+						data-background-color="white"
+						data-background-image="https://media.giphy.com/media/q2e6wMip17Lxe/giphy.mp4"
+						data-background-size="contain"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section 
+						data-background-color="white"
+						data-background-image="img/find-x.jpg"
+						data-background-size="contain"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section 
+						data-background-color="white"
+						>
+							<h1> Is There a Better Way? </h1>
+							<ul>
+								<li class="fragment fade-in-then-semi-out">
+									Manager gave me a paper to read and asked my opinion 
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									It was on the idea of using a spreadsheet to 
+									define the steps of test automation
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									What would later become FIT
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									The intent is to allow non-programmers to contribute test cases
+								</li>
+							</ul>
+							<aside class=notes></aside>
+					</section>
+					<section 
+						data-background-color="white"
+						>
+						<h1> Pros </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Tests don't just read like English, they <em>are</em> English
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Makes it easy to share them with stakeholders
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Facilitates getting contributions of tests from 
+								subject matter experts
+							</li>
+						</ul>
+						<aside class=notes></aside>
+					</section>
+					<section 
+						data-background-color="white"
+						>
+						<h1> Cons </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								It is its own programming language, albeit a very limited one:
+								it has no support for cleanly adding loops, conditionals, 
+								or code reuse, unless you add that functionality yourself
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It gives the false impression to contributors that 
+								whatever you type, it will work
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								There is no IDE support to guide test case creation
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It's brittle: every change breaks a running test
+							</li>
+						</ul>
+					</section>
+					<section 
+						data-transition="fade-in"
+						data-background-color="white"
+						>
+						<h1> Cons </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								The implementation of the logic is separated from the definition
+								of the test, making it harder to wrap one's head around
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Every unique bit of logic requires a unique bit of text 
+								to describe it, you can't readily rely on context
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It promotes writing spaghetti test code
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								. . . and many more things I'm not fond of . . .
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Which is why my recommendation was: <strong>find a happy medium</strong>
+							</li>
+						</ul>
+						<aside class=notes></aside>
+					</section>
+				</section>
+				<section>
+					<section class=lesson
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned <br/> about Testing DSLs </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Typical code is not suitable for domain experts
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Spreadsheets and HTML documents are easy to read and write, 
+								but hard to reliably turn into working code
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Especially if you need to add conditionals or loops or any other form
+								of non-linear logic
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Making test code easier to read and write is a good goal
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								But not at the expense of even rudimentary programming concepts,
+								like branching, loops, and code reuse
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/have-your-cake.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/have-your-cake.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+							<div class=point-text>
+								Never give up Power<br>
+								in return for Simplicity
+							</div>
+							<div class="point-subtext fragment fade-in">
+									You can <em>and should</em> have them both!
+							</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section 
+						data-background-color="black"
+						data-background-image="https://media.giphy.com/media/102dNGcEPS1iEg/giphy.mp4"
+						data-background-size="contain"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+							<aside class=notes></aside>
+					</section>
+					<section 
+						data-transition="none"
+						data-background-color="white"
+						data-background-image="img/titanic.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+							<h1> Another Team's Failure </h1>
+							<ul>
+								<li class="fragment fade-in-then-semi-out">
+									It is 2003 
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									A consulting team had been working for two years to automate
+									the testing of CenturyTel's billing system 
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									It took a team of people two weeks to execute a test pass
+									because their code couldn't handle warnings, pop-ups, or variable flows
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									They had lost the contract, and I was being brought in to try
+									and finish what they started 
+								</li>
+							</ul>
+							<aside class=notes></aside>
+					</section>
+				</section>
+				<section>
+					<section 
+						data-autoslide="2000"
+						data-background-color="white"
+						data-background-image="img/blocks.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+							<aside class=notes></aside>
+					</section>
+					<section 
+						data-transition="fade-in slide-out"
+						data-background-color="white"
+						data-background-image="img/blocks.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<h1> My First Testing DSL </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Created a library of generic functions, like: <br/>
+								<div style="font-size: 0.75em">
+								<code>click(object)</code>,
+								<code>enter(object,value)</code>,
+								<code>waitFor(window)</code>,
+								<code>select(object)</code>,
+								<code>check(checkbox)</code>,
+								<code>uncheck(checkbox)</code>, 
+								etc.
+								</div>
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								The library was complicated, but the tests were brain-dead-simple 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								With meaningful object names, tests read almost 
+								like a Dick and Jane book
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Enabled non-developers to get in and contribute test cases 
+							</li>
+						</ul>
+						<aside class=notes></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-autoslide="2000"
+						data-background-color="white"
+						data-background-image="img/man-crying.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section 
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/man-crying.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<h1> This is So Sad </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Sometimes, things just don't go the way you expect
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Especially when you are testing with real-world data
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								And sometimes, the application is doing 
+								exactly what it should!
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								So I created a facility to take a screenshot on any test failure 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It also captured every detail of every window on the screen
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								In the logs, I could explore that screenshot and see 
+								everything I needed to know in order to successfully
+								deal with any unexpected dialogs 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section class=lesson
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned <br/> about Logging </h1> 
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Tests can fail for many reasons besides application defects
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Timing issues, unexpected dialogs, data missing or 
+								in an unexpected state, planned changes
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It can be tedious to have to re-run a failed test 
+								to figure out why it broke
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Especially if the failure is intermittent
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Always capture everything you need to 
+								reproduce, diagnose, and if applicable, fix the failure 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="white"
+						data-background-image="img/how-to-tie-a-bow-tie.jpg"
+						data-background-size="contain"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/how-to-tie-a-bow-tie.jpg"
+						data-background-size="cover"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<div class=point-text>
+							Test logs<br/> should be verbose
+							<div class=small>
+								and meant for human consumption
+							</div>
+						</div>
+						<div class="point-subtext fragment fade-in">
+							<strong>Test logs should contain:</strong><br/>
+							The intent of the test case,<br/> 
+							e.g. GIVEN / WHEN / THEN<br/>
+							Every step taken, and with what data<br/>
+							Every available detail about errors
+						</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section class=lesson
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned <br/> about Flexibility </h1> 
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Sometimes, you can't control every detail 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Especially when you are forced to use real-world data 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It is critically important to add checks for the 
+								unexpected, and handle it gracefully 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								This requires experimentation, and writing flexible code 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-background-color="white"
+						data-background-image="img/dancer.jpg"
+						data-background-size="contain"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/dancer.jpg"
+						data-background-size="cover"
+						data-background-position="top center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+							<div class=point-text>
+								<div class=small>Make your test framework</div>
+								Flexible <span class=small>and</span> Graceful
+							</div>
+							<div class="point-subtext fragment fade-in">
+								Always test with many different inputs, and ensure that your test
+								framework can <em>gracefully</em> handle all of the valid 
+								ways that the software can and does respond
+							</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section class=lesson
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned <br/> about Simplicity </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Making test code simple yet powerful
+								can greatly accelerate the pace of
+								automation development 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Also allows non-developer domain
+								experts to participate in the test
+								development process 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Making the <em>majority</em> of code simpler usually
+								means making a <em>portion</em> of the code
+								more complicated 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								This means a more advanced skill set is required 
+								to maintain the framework code 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/english.jpg"
+						data-background-size="cover"
+						data-background-position="top"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/english.jpg"
+						data-background-size="cover"
+						data-background-position="top"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<div class=point-text>
+							<div class=small> Code that reads like <strong>English</strong> is</div>
+							A Very Good Thing
+						</div>
+						<div class="point-subtext fragment fade-in"> 
+							A very, Very, VERY Good Thing
+						</div>
+						<aside class="notes"></aside>
+					</section>
+					<section 
+						data-autoslide="2000"
+						data-background-color="white"
+						data-background-image="img/torus.jpg"
+						data-background-size="contain"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/torus.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<div class=point-text>
+							<div class=small> 
+								Don't be afraid to <strong>add complexity</strong><br/>
+								in one place if it means
+							</div>
+							reducing complexity
+							<div class=small>everywhere else</div>
+						</div>
+						<div class="point-subtext fragment fade-in"> 
+							You build your framework once.
+							You spend the rest of your time writing tests.
+							Make the framework as complex as necessary to make
+							the tests as simple as possible.
+						</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="https://media.giphy.com/media/26BRvIYDe4ILO60Ni/giphy.mp4"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/silk-sheets.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.5"
+						>
+						<h1> Silk Test </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								It is now 2005 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								I'm working at Iovation 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								The test automation tool of choice is Silk Test 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								For the first time, I have at my disposal a GUI automation tool 
+								that has object oriented capabilities 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								I take full advantage of it, organizing code 
+								like I never could before 
+							</li>
+						</ul>
+						<aside class=notes></aside>
+					</section>
+				</section>
+				<section>
+					<section class=lesson
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Well organized code is much easier to maintain 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Object-oriented lends itself to intuitive abstractions
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								The level of abstraction can rise above individual interactions
+								like mouse clicks and data entry
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Instead, it can represent entire features or common interactions
+								in the same way that a user thinks about them
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								The resulting test cases are even easier to read
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								I will never use WinRunner again!
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-background-color="white"
+						data-background-image="img/thinking.jpg"
+						data-background-size="contain"
+						data-background-position="top"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/thinking.jpg"
+						data-background-size="cover"
+						data-background-position="top"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+							<div class=point-text>
+								Implement varying<br/>levels of abstraction
+								<div class=small>
+									Match the way the user thinks<br/>about the application<br/>
+									or the task at hand
+								</div>
+							</div>
+							<div class="point-subtext fragment fade-in-then-out">
+								Window Objects interact with individual UI windows/pages
+							</div>
+							<div class="point-subtext fragment fade-in-then-out">
+								Process/Feature/Data Objects abstract interacting across
+								pages to accomplish certain common processes
+							</div>
+							<div class="point-subtext fragment fade-in-then-out">
+								For setup / teardown processes, each line of code should
+								express a complete logical step, even if that step includes
+								interacting with multiple elements or services
+							</div>
+							<div class="point-subtext fragment fade-in-then-out">
+								When testing a particular feature,
+								break the interaction into as many lines as makes sense
+								to describe the process of testing
+							</div>
+
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="img/clockwork.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/clockwork.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<h1> Combinations and Permutations </h1>
+						<ul style="margin-top: 15vh">
+							<li class="fragment fade-in-then-semi-out">
+								It is now 2006, still at Iovation 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								There are more than a half-dozen parameters
+							    with several options each that need to be tested 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								All told, they amount to hundreds of different test cases 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								No (normal) human brain can keep track of all that 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								So I wrote a script to do it for me 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Output 595 test cases, with the code to test them! 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Later, I even built a UI for doing this kind of thing
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section class=lesson
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned <br/> about Test Generation </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Sometimes it is simpler and easier to test <em>everything</em>
+								than it is to try to figure out what to test and what to skip 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Automation makes that a practical option 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								This approach is a variation of <em>model-based-testing</em>, 
+								and assumes that our model is simpler than the system being modeled 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-background-color="white"
+						data-background-image="img/tic-tac-toe.jpg"
+						data-background-size="contain"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/tic-tac-toe.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+							<div class=point-text style="margin-right: 30vh">
+								<div class=small> When it is possible to </div>
+								generate an exhaustive set of test cases 
+								<div class=small> do it! </div>
+							</div>
+							<div class="point-subtext fragment fade-in" style="margin-right: 30vh; width: 50%;">
+								It is an exercise that pays huge dividends very quickly
+							</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="https://media.giphy.com/media/12GUPx3g0PPfYA/giphy.mp4"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section
+						data-background-color="white"
+						data-background-image="img/sea-of-people.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<h1> Real World Data </h1>
+						<ul style="margin-top: 15vh">
+							<li class="fragment fade-in-then-semi-out">
+								It is 2007, working at TransUnion 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Project is a service to find people given incomplete data 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Data set includes 365+ million records 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Requirement is that every record is findable 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Testing them all will take too long, must test a sample set 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								A sample set may filter out records that could reveal a bug 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Many records are functionally equivalent and could be omitted 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								What to do, what to do?
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-background-color="white"
+						data-background-image="img/filter.jpg"
+						data-background-size="50%"
+						data-background-position="bottom right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> Equivalence Class Filtering </h1>
+						<ul style="margin-top: 10vh">
+							<li class="fragment fade-in-then-semi-out">
+								Solution was to do an <strong>intelligent filter</strong> on the data set 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								For every data type, wrote a translation function: 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								<strong>Names:</strong> <br/>
+								'Smith' =&gt; 'Xxx', 'Jones' =&gt; 'Xxx' <br/>
+								'McDonald' =&gt; 'XxXxx' <br/>
+								'De La Joya' =&gt; 'Xx Xx Xxx' 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								<strong>Addresses:</strong> <br/>
+								'123 N Oak Street' =&gt; '999 D Xxx St' <br/>
+								'One Infinite Loop' =&gt; '9 Xxx Lp'
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-background-color="white"
+						data-background-image="img/filter.jpg"
+						data-background-size="50%"
+						data-background-position="bottom right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> Building the Transforms </h1>
+						<ol>
+							<li class="fragment fade-in-then-semi-out">
+								Extract a histogram of all unique values in a field 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Analyze and look for patterns that are functionally equivalent
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Build an initial transformation function that transforms 
+								values matching that pattern into a single value, e.g. <code>{token}</code>
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Apply it and build a new histogram 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								See what was not transformed by the function, and add
+								logic to handle the next most common equivalence cases 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Repeat until every value has been transformed
+							</li>
+						</ol>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-background-color="white"
+						data-background-image="img/filter.jpg"
+						data-background-size="50%"
+						data-background-position="bottom right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> Processing the Data </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								For every field, create a <code>field=class</code> <em>feature-key</em>
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								For every pair of fields, create a <code>field=class+field=class</code> 
+								<em>feature-key</em> 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								For every <em>feature-key</em> in the current record, test to see if we have
+								already selected a record to represent that <em>feature-key</em> 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								If there are no new <em>feature-keys</em> in this record, skip it 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Otherwise, link this record to every <em>feature-key</em> found in it 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-background-color="white"
+						data-background-image="img/filter.jpg"
+						data-background-size="50%"
+						data-background-position="bottom right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> Selecting the Sample Set </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								I use a hash map to associate <em>filter-keys</em> to records 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								When a new record is added that includes <em>filter-keys</em> that
+							    we have seen previously, the record associated with those
+							    existing keys is changed to the new record 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Earlier Records can get pushed out over time 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Unique records will stay until the end 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								This means the algorithm favors records appearing later 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Best to randomize the processing order to avoid bias 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-background-color="white"
+						data-background-image="img/filter.jpg"
+						data-background-size="50%"
+						data-background-position="bottom right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> Minimum Sample Set </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								After processing all the records, the <em>filter-key</em> map
+								contains pointers to the records that contain some kind of uniqueness about them
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								This sample set is a good approximation of the smallest
+								possible set of records that contain every valid test case 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								At TransUnion, that sample set was 0.25%, or less than a million
+								records out of 365+ million 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section class=lesson
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.25"
+						>
+						<h1> What I Learned <br/> about Big Data </h1>
+							<ul>
+								<li class="fragment fade-in-then-semi-out">
+									There is a LOT of redundancy in natural data sets 
+								</li> 
+								<li class="fragment fade-in-then-semi-out">
+									There is no hope of wrapping your brain around it all 
+								</li> 
+								<li class="fragment fade-in-then-semi-out">
+									You <em>have</em> to build tools to do the analysis 
+								</li>
+								<li class="fragment fade-in-then-semi-out">
+									You need a LOT of RAM to work on data sets that big 
+								</li> 
+							</ul>
+							<aside class="notes"></aside>
+					</section>
+					<section
+						data-background-color="white"
+						data-background-image="img/database.jpg"
+						data-background-size="contain"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-background-color="black"
+						data-background-image="img/database.jpg"
+						data-background-size="cover"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+							<div class=point-text>
+								Analyze the data programmatically
+							</div>
+							<div class="point-subtext fragment fade-in">
+								Equivalence Class Filtering helps
+							</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="https://media.giphy.com/media/CwddUswUPs2aY/giphy.mp4"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="white"
+						data-background-image="img/waveforms.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section
+						data-transition="fade-in"
+						data-background-color="white"
+						data-background-image="img/waveforms.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<h1> An Extremely Complicated Algorithm </h1>
+						<ul style="margin-top: 15vh">
+							<li class="fragment fade-in-then-semi-out">
+								Still 2007, working at TransUnion 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								There was an algorithm for converting a name to the way it sounds,
+								like SoundEx only more thorough 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Consisted of dozens of regular expressions applied in order 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Allowed variations of spelling to be converged to the same token 
+								e.g. Smith and Smythe, Bear and Behr, etc. 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+				<section>
+					<section
+						data-background-color="white"
+						data-background-image="img/lightbulb-idea.jpg"
+						data-background-size="contain"
+						data-background-position="right"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<h1> What I Learned about Competing Implementations </h1>
+						<ul style="margin-top: 15vh">
+							<li class="fragment fade-in-then-semi-out">
+								Manually validating the implementation would have required
+								implementing it by hand 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Easier to code own version to figure out the expected results 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Then all I had to do was compare the outputs 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								The slow manual testing could be focused on the
+								inputs where the outputs differed 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								I found and fixed bugs in my implementation, but I also
+								found bugs in theirs 
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section
+						data-autoslide="2000"
+						data-background-color="black"
+						data-background-image="img/rock-em-sock-em.jpg"
+						data-background-size="contain"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="1"
+						>
+					</section>
+					<section class=point
+						data-transition="fade-in"
+						data-background-color="black"
+						data-background-image="img/rock-em-sock-em.jpg"
+						data-background-size="cover"
+						data-background-position="center"
+						data-background-repeat="no-repeat"
+						data-background-opacity="0.1"
+						>
+						<div class=point-text>
+							<div class=small>
+								There are times when the <strong>most efficient</strong><br/>
+								way of testing something is by
+							</div>
+							Pitting it against<br/>a competing implementation
+						</div>
+						<div class="point-subtext fragment fade-in">
+							If they are both wrong in the same way, then it's the fault of 
+							the specification.  It's not a bug, it's a feature!
+						</div>
+						<aside class="notes"></aside>
+					</section>
+				</section>
+			<section>
+				<section
+					data-autoslide="2000"
+					data-background-color="white"
+					data-background-image="img/rotary-phone.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/rotary-phone.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> To continue in Spanish, please press 8 </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							It is 2010
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Working for Comcast
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							On the Interactive Voice Responder (IVR)<br/>
+							that powers 1-800-COMCAST
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							It is a large-scale system designed to handle heavy traffic
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Until it couldn't . . .
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/rotary-phone.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> The Wrong Library </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							There was an intermittent problem that was causing big issues 
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							The team spent weeks trying to isolate the problem 
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							JMeter could not reliably reproduce it, but production could 
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Until I told JMeter to send two requests at the same time 
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							The problem turned out to be using a single-threaded library 
+							in a multi-threaded context 
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							DOH!
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+			<section>
+				<section
+					data-background-color="white"
+					data-background-image="img/lightbulb-idea.jpg"
+					data-background-size="contain"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.25"
+					>
+					<h1> What I Learned </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Even brilliant people make dumb mistakes 
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Thread-safety is VERY important
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Performance testing is necessary to find thread-safety issues
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section
+					data-autoslide="2000"
+					data-background-color="white"
+					data-background-image="img/perf-test.jpg"
+					data-background-size="contain"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section class=point
+					data-transition="fade-in"
+					data-background-color="black"
+					data-background-image="img/perf-test.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<div class=point-text>
+						Performance Test
+					</div>
+					<div class="point-subtext fragment fade-in">
+						Not as an afterthought, or as a reaction to a problem,
+						but as a proactive attempt to build the best possible system
+					</div>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+			<section>
+				<section
+					data-autoslide="2000"
+					data-background-color="white"
+					data-background-image="img/stethoscope.jpg"
+					data-background-size="contain"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/stethoscope.jpg"
+					data-background-size="contain"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> By Developers, For Developers </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							It is 2014
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Again working in beautiful downtown Portland,
+							overlooking the Willamette River
+						<li class="fragment fade-in-then-semi-out">
+							The company is Cigna, the health insurance provider
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Testing the technology that powers 
+							a 3rd-party integrations API
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Building both functional and performance tests
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/frayed-rope.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> Write Once, Test Everywhere </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							The development team specifically asked that we 
+							code our tests so that the developers can run them
+							on their computers
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Naturally, we were more than happy to oblige!
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Needed to be flexible and run anywhere: 
+							Local, DEV, QA, STG, PERF, or even PROD
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Implemented a strategy that would use
+							an environment variable to select which config file to read
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							While you should always create your data on-the-fly
+							for functional testing, that is not a feasible option
+							for performance testing
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+			<section>
+				<section class=lesson
+					data-background-color="white"
+					data-background-image="img/lightbulb-idea.jpg"
+					data-background-size="contain"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.25"
+					>
+					<h1> What I Learned </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							It's good to get developer involvement
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Be flexible in where your code is pointed
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Be careful how you build your Config
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Be mindful of data setup requirements
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section
+					data-autoslide="2000"
+					data-background-color="white"
+					data-background-image="img/seedling.jpg"
+					data-background-size="cover"
+					data-background-position="top"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section class=point
+					data-transition="fade-in"
+					data-background-color="black"
+					data-background-image="img/seedling.jpg"
+					data-background-size="cover"
+					data-background-position="top"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<div class=point-text>
+						<div class=small>The same test code should be able to be</div>
+						run in any environment
+						<div class=small>requiring only a configuration change</div>
+					</div>
+					<div class="point-subtext fragment fade-in">
+						Do what it takes to make it so, including having multiple
+						configurations and an easy way to switch between them.
+					</div>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+			<section>
+				<section
+					data-background-color="black"
+					data-background-image="https://media.giphy.com/media/r1jbtDXIAjq92/giphy.mp4"
+					data-background-size="contain"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section
+					data-autoslide="2000"
+					data-background-color="white"
+					data-background-image="img/mickey-mouse.jpg"
+					data-background-size="contain"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/mickey-mouse.jpg"
+					data-background-size="contain"
+					data-background-position="top right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> The Happiest Place on Earth </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							It is 2015
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							I've moved to sunny Orlando, Florida
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							I'm working at the Walt Disney Company
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							On their Identity and Access Management team
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Testing <em>Keystone</em>, their Authorization solution
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section
+					data-autoslide="2000"
+					data-background-color="white"
+					data-background-image="img/lorem-ipsum.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/lorem-ipsum.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> Random Test Data </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Records have names
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Names need to be unique
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Originally generated random strings, like "jeod65j9wgh42jh023b42hck772bc"
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Manually interacting with generated records was very hard
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Switched to using values of the form: 
+							<code>{prefix}.{timestamp}.{random-disney-character-name}</code>
+						</li>
+					</ul>
+						<aside class="notes"></aside>
+				</section>
+				<section
+					data-background-color="white"
+					data-background-image="img/lorem-ipsum.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+						<h1> Also Created </h1>
+						<ul style="margin-top: 15vh">
+							<li class="fragment fade-in-then-semi-out">
+								Timestamp generator that guarantees a unique
+								value every time 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								For descriptions: <code>{character} {verb} {character}</code>
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Random UUID strings for unique record IDs
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Deterministic UUID strings for GUIDs that need to be consistent
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								For testing unicode support, a function
+								that outputs randomly chosen unicode characters
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Another that outputs random emoji
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+				</section>
+				<section
+					data-background-color="white"
+					data-background-image="img/lorem-ipsum.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+						<h1> More to Come </h1>
+						<ul> 
+							<li class="fragment fade-in-then-semi-out">
+								There are more things I plan to create over time:
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								A word-salad generator - statistically 
+								plausible but meaningless sequences of words
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								A lorem-ipsum generator - looks like English at
+								a glance, but it really isn't
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Will add others, like addresses, phone numbers, 
+								or credit card numbers, as I need them
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+				</section>
+			</section>
+			<section>
+				<section class=lesson
+					data-background-color="white"
+					data-background-image="img/lightbulb-idea.jpg"
+					data-background-size="contain"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.25"
+					>
+					<h1> What I Learned <br/> about Data </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Test data needs to be equally usable by computers and humans
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Random text really isn't usable by humans
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Random data that includes random but familiar things
+							(like Disney / Pixar / Marvel / Star Wars characters)
+							add a touch of fun to testing
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section 
+					data-autoslide="2000"
+					data-background-color="black"
+					data-background-image="img/disney-characters.jpg"
+					data-background-size="contain"
+					data-background-position="bottom"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section class=point
+					data-transition="fade-in"
+					data-background-color="black"
+					data-background-image="img/disney-characters.jpg"
+					data-background-size="200%"
+					data-background-position="bottom"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<div class=point-text>
+						<div class=small>
+							When you do not need to use a specific value 
+						</div>
+						use randomly generated values
+						<div class=small>
+							that a human being can easily interact with
+						</div>
+					</div>
+					<div class="point-subtext fragment fade-in">
+						Making it familiar things chosen<br/>
+						at random adds an element of fun
+					</div>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+			<section>
+				<section
+					data-autoslide="2000"
+					data-background-color="black"
+					data-background-image="img/broken-glass-transparent.png"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+					<aside class="notes"></aside>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/broken-glass.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.25"
+					>
+					<h1> Broken Tests </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Found an issue where the API was not doing the right thing
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							After submitting a defect, had to figure out what to do with the test
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Did not want to comment it out, lest I forget to bring it back later
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Did not want to let it fail, as that would create test noise
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section
+					data-background-color="white"
+					data-background-image="img/broken-glass.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> What to do?</h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Created a mechanism for marking a test as "broken"
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Defined the "expected" result
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Also defined the actual, broken result
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							The test verifies the actual behavior,
+							and if that passes, the test case is still broken,
+							so the test is marked as "skipped"
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Otherwise, the test fails, which means that the behavior of the
+							application was changed, and the test case needs attention
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+			<section>
+				<section class=lesson
+					data-background-color="white"
+					data-background-image="img/lightbulb-idea.jpg"
+					data-background-size="contain"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.25"
+					>
+					<h1> What I Learned <br/> about Test Runners </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Unit testing frameworks are not built for handling this use case
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Hiding the complexity of this conditional pass/fail/skip
+							means adding some DSL to test scripts.
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							It is worth building that DSL, so that the test developer
+							doesn't have to do much different when dealing with a broken
+							test case vs. a normal, passing test case
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							This DSL also helps enforce test structure: Setup, Test, Verify, Teardown
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section class=point
+					data-background-color="rgba(0,64,0,1)"
+					>
+						<div class=point-text>
+							Passed means<br/>Everything is OK
+						</div>
+						<div class="point-subtext fragment fade-in">
+							If a test case passes, that means that the application
+							under test is behaving as we expect it to
+						</div>
+					<aside class="notes"></aside>
+				</section>
+				<section class=point
+					data-background-color="rgba(64,0,0,1)"
+					>
+					<div class=point-text>
+						Failed means<br/>Attention Required 
+					</div>
+					<div class="point-subtext fragment fade-in">
+						If a test case fails, that means that what used to work
+						no longer does, so the developers broke something,
+						or the test case is not implemented correctly
+					</div>
+					<aside class="notes"></aside>
+				</section>
+				<section class=point
+					data-background-color="rgba(255,255,0,0.9)"
+					>
+					<div class=point-text>
+						Skipped means<br/>it doesn't pass
+						<div class=small>
+							but there is nothing we need to do about it right now
+						</div>
+					</div>
+					<div class="point-subtext fragment fade-in">
+						Yes, it's broken.  We know.  
+						<em>This is not the test you're looking for.  Move along.</em>
+					</div>
+					<aside class="notes"></aside>
+				</section>
+				<section class=point
+					data-background-color="black"
+					data-background-image="img/broken-glass.jpg"
+					data-background-size="cover"
+					data-background-position="top"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+						<div class=point-text>
+							Continue to run<br/>broken tests
+							<div class=small>
+								and differentiate them from the rest
+							</div>
+							So we will know when<br/>the defect is fixed
+						</div>
+						<div class="point-subtext fragment fade-in">
+							Since most test runners only support Pass/Fail/Skip, 
+							mark broken tests as skipped, but only if they are
+							still broken
+						</div>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+			<section>
+				<section
+					data-autoslide="2000"
+					data-background-color="white"
+					data-background-image="img/civil-war.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/civil-war.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> Dividing Up the Test Suite </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							The Keystone Admin API consists of around 30 RESTful services
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Covering everything means nearly 8,800 test cases
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							There is no way a suite of that size should 
+							be integrated into the build
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Not even with parallel execution
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							On top of that, not every test deserves to be run 
+							every time there is a code change
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Need to divide up the test suite and 
+							run different segments at different times
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section
+					data-background-color="white"
+					data-background-image="img/lightbulb-idea.jpg"
+					data-background-size="contain"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.25"
+					>
+					<h1> What I Learned<br/>about Tagging </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Some test cases should be run every build
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Others only need to be run as needed
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							A larger set needs to be run before a release
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							A smaller set can be run to verify a deployment
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							And everything in between
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							All this can be accomplished by tagging
+							test cases and running everything tagged with a
+							specific tag
+						</li>
+					</ul>
+				</section>
+				<section
+					data-autoslide="2000"
+					data-background-color="white"
+					data-background-image="img/blank-price-tag.jpg"
+					data-background-size="contain"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section class=point
+					data-transition="fade-in"
+					data-background-color="black"
+					data-background-image="img/blank-price-tag.jpg"
+					data-background-size="cover"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<div class=point-text>
+						Tag Test Cases
+						<div class=small>so that you can run select subsets as needed</div>
+					</div>
+					<div class="point-subtext fragment fade-in">
+						Some example tags:<br/> 
+						smoke, acceptance, functional, pedantic, regression, broken, cleanup
+					</div>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+			<section>
+				<section
+					data-autoslide="2000"
+					data-background-color="white"
+					data-background-image="img/rubber-duckies.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/rubber-duckies.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+						<h1> Highly Repetitive Tests </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Each service manages a single record type
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								There are many test cases that are applicable to every service
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Like access the API without an authorization token
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Or trying to fetch a deleted record
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Or creating a duplicate record
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								And <em>hundreds</em> of others
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/rubber-duckies.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> Highly Repetitive Tests </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Along the way, I would sometimes think of another
+							test case that would apply to every service
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Every time I did, I would have to go back and add it
+							to the tests for all the services I had already completed
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Sometimes half way through adding it, I would think of another
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							It got really hard, really quick, to make sure I added them
+							everywhere they applied
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							I needed a way to enforce that every test case was implemented
+							everywhere that it applied
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section 
+					data-background-color="white"
+					data-background-image="img/rubber-duckies.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+						<h1> What I Tried - Scala </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Defined Traits to define test cases and common parts of the
+								test implementation
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Test classes implement whichever traits apply,
+								and just enough functionality to make the 
+								generic test implementations run
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								It worked . . . 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								But it got a bit convoluted
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Multiple inheritance has its place  
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								This wasn't it
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+				</section>
+				<section 
+					data-background-color="white"
+					data-background-image="img/rubber-duckies.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> What I Tried - Java </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Defined subsets of related test cases as <em>interfaces</em>
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							String fields, integer fields, boolean fields, required fields,
+							optional fields, authenticated endpoint, create, retrieve,
+							update, and delete tests, and so forth
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							When declaring a test class, implement all the interfaces
+							that apply
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							The code will compile once all of the required test
+							cases have been at least declared
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Adding a test case is as simple as updating the interface 
+							and defining it everywhere that no longer compiles 
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section class=lesson
+					data-background-color="white"
+					data-background-image="img/lightbulb-idea.jpg"
+					data-background-size="contain"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.25"
+					>
+					<h1> What I Learned </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							It definitely pays to leverage the capabilities of the language
+							for organizing the test code
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							The multiple-inheritance approach avoided duplicated code,
+							but got too complicated
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							The interface approach works, but introduces a lot of boilerplate
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							I'm still looking for the right balance
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+			<section 
+				data-autoslide="2000"
+				data-background-color="black"
+				data-background-image="img/handcuffs.jpg"
+				data-background-size="cover"
+				data-background-position="right"
+				data-background-repeat="no-repeat"
+				data-background-opacity="1"
+				>
+			</section>
+			<section class=point
+				data-transition="fade-in"
+				data-background-color="black"
+				data-background-image="img/handcuffs.jpg"
+				data-background-size="cover"
+				data-background-position="right"
+				data-background-repeat="no-repeat"
+				data-background-opacity="0.1"
+				>
+				<div class=point-text>
+					<div class=small>
+					Structure your code so as to
+					</div>
+					enforce implementation <span class=small>of</span> standard tests
+				</div>
+				<div class="point-subtext fragment fade-in">
+					Take advantage of the compiler
+				</div>
+				<aside class="notes"></aside>
+			</section>
+			<section> <!-- Recognizable Test Records - follow a pattern -->
+				<section
+					data-autoslide="2000"
+					data-background-color="white"
+					data-background-image="img/flags.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/flags.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> Flagging Test Records </h1>
+					<ul style="margin-top: 20vh">
+						<li class="fragment fade-in-then-semi-out">
+							Lower environments are filled with everyone's test records
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							I built my automation to delete what it creates
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							But if a test fails, the records get left behind
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Needed a way to tell my test records from everybody elses
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							So I could periodically programmatically delete them
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							That is when I decided on the naming convention:<br/>
+							<code>{prefix}.{timestamp}.{character-name}</code>
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section 
+					data-background-color="white"
+					data-background-image="img/lightbulb-idea.jpg"
+					data-background-size="contain"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.25"
+					>
+					<h1> What I Learned <br/> about Naming Conventions </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							We brought on an outsourcing team to help implement the
+							nearly 8,800 test cases I had defined
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							With so many people developing test cases, the 
+							test data from failed tests accumulated quickly
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							It became extra important to be able to programmatically
+							delete records no longer needed
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							The importance was driven home when sometimes 
+							the outsourcing team didn't follow the conventions
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section
+					data-autoslide="2000"
+					data-background-color="white"
+					data-background-image="img/name-tag.png"
+					data-background-size="cover"
+					data-background-position="top"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section class=point
+					data-background-color="black"
+					data-background-image="img/name-tag.png"
+					data-background-size="cover"
+					data-background-position="top"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<div class=point-text>
+						Always follow<br/>
+						Naming Conventions
+					</div>
+					<div class="point-subtext fragment fade-in">
+						They make it easy to recognize which records were created 
+						when, why, and if it is okay to delete them now.
+					</div>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+			<section> <!-- One DSL, not two -->
+				<section
+					data-autoslide="2000"
+					data-background-color="white"
+					data-background-image="img/code-organization.png"
+					data-background-size="80%"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/code-organization.png"
+					data-background-size="80%"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.03"
+					>
+					<h1> Framework Layers </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Originally conceived of the testing DSL in layers
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Abstraction Layer exposes an object-oriented interface for 
+							interacting with the records that the API lets you manage
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							The Interface layer exposes a functional interface to the 
+							underlying services
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Tests would usually use the Abstraction Layer, except when
+							it did not support what the test case demanded
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							My intentions were good: a multi-level abstraction of 
+							application interactions
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section class=lesson
+					data-background-color="white"
+					data-background-image="img/lightbulb-idea.jpg"
+					data-background-size="contain"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.25"
+					>
+					<h1> What I Learned <br/> about Layers </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							In hindsight, it wasn't a good idea
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Most of the time, you used the high-level OOP DSL
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Occasionally switching to using the low-level functions
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							It was jarring, and unpleasant
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							To make things worse, when we brought in the outsourcing team, 
+							they had a hard time knowing which to use, and often chose
+							the wrong one
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Eventually we added enough functionality to the Abstraction Layer
+							that it was never necessary to go directly to the Interface Layer
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+			<section
+				data-autoslide="2000"
+				data-background-color="white"
+				data-background-image="img/merge-sign.jpg"
+				data-background-size="cover"
+				data-background-position="right"
+				data-background-repeat="no-repeat"
+				data-background-opacity="1"
+				>
+			</section>
+			<section class=point
+				data-transition="fade-in"
+				data-background-color="black"
+				data-background-image="img/merge-sign.jpg"
+				data-background-size="cover"
+				data-background-position="right"
+				data-background-repeat="no-repeat"
+				data-background-opacity="0.1"
+				>
+					<div class=point-text>
+						One Testing DSL
+					</div>
+					<div class="point-subtext fragment fade-in">
+						Create a single, uniform approach to interacting with the
+						application under test
+					</div>
+				<aside class="notes">
+				</aside>
+			</section>
+			<section> <!-- Generating the DSL -->
+				<section
+					data-autoslide="2000"
+					data-background-color="white"
+					data-background-image="img/flow-chart-background.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/flow-chart-background.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> Generating the DSL </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							The Keystone Admin testing framework consisted of
+							three pieces: the Interface Layer, the Abstraction Layer,
+							and the JSON Generator
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							One of each of these classes has to be created for every
+							endpoint in the API
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							As there are around 30 endpoints, that's a lot of boilerplate
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Decided the best way was to generate the classes programmatically
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/flow-chart-background.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+						<h1> Generating the DSL </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								For each endpoint, crafted a JSON file describing its 
+								supported methods, urls, and request schema
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Wrote a script to convert the JSON into the Java classes needed
+								for the testing framework
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Also, generated over 8,800 stubbed-out test cases
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Got the generated code as correct as possible . . .
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Then manually added one-off functionality that could not be generated
+							</li>
+						</ul>
+						<aside class="notes"></aside>
+				</section>
+				<section class=lesson
+					data-background-color="white"
+					data-background-image="img/lightbulb-idea.jpg"
+					data-background-size="contain"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.25"
+					>
+					<h1> What I Learned <br/> about Code Generation </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Generating raw Java is much harder than generating
+							code in a terse, custom DSL
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Even so, definitely worth doing
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Need a more polished way of doing code generation
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Need to reorganize the generated code
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Have other plans for improvement . . .
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section
+					data-background-color="white"
+					data-background-image="img/flow-chart-background.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> Next Generation </h1>
+					<h2 class="fragment fade-in"> Not Java </h2>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Java's implementation of labda expressions
+							has the unnecessary limitation of requiring all
+							external variables referenced to be declared 
+							final or effectively final
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							This has the side-effect that using labda expressions
+							for the code blocks (Setup/Test/Verify/Teardown)
+							is restricted from initializing objects in the setup phase.
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Other languages, most notably Scala, do not have this restriction
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							If at all possible, I will avoid Java 
+							in favor of a more elegant language
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section
+					data-background-color="white"
+					data-background-image="img/flow-chart-background.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> Next Generation </h1>
+					<h2 class="fragment fade-in"> Test Data </h2>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							The <code>TestData</code> class will aquire many more
+							capabilities
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							This will include generators for all kinds of data types, like
+							names, addresses, telephones, etc.
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							It will allow me to define sets of generators and produce 
+							every valid combination, for data-driven testing
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Or perhaps I will just use ScalaCheck or one of the similar 
+							packages?
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section
+					data-background-color="white"
+					data-background-image="img/flow-chart-background.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> Next Generation </h1>
+					<h2 class="fragment fade-in"> Code Generation </h2>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							I will capture the knowledge of all of the different kinds of
+							standard test cases into a machine-readable format
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							I will define a standard way of describing a service,
+							or a UI window or form, also in a machine-readable format
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							I will build code that can generate a test matrix
+							for a given service
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Eventually, it will generate empty test declarations,
+							and later, fully executable test cases
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section
+					data-background-color="white"
+					data-background-image="img/flow-chart-background.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> Next Generation </h1>
+					<h2 class="fragment fade-in"> Tool Chain </h2>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							I will create a DSL for defining test cases, services, UI elements, and
+							how they relate
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							The DSL and the tools that leverage it will be open sourced
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							The DSL will be modular and encourage definition re-use
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							It will support a PATH-like search mechanism so a large organization
+							can have the system definitions, the community-shared definitions,
+							their own enterprise-wide definitions, team definitions, 
+							and/or product specific definitions
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+				<section
+					data-background-color="white"
+					data-background-image="img/flow-chart-background.jpg"
+					data-background-size="cover"
+					data-background-position="center"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> Next Generation </h1>
+					<h2> Tool Chain Capabilities </h2>
+					<p>
+					In (approximate) road-map order:
+					</p>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Test Data Generator
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Test Matrix Generator
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Documentation Generator
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Swagger (etc.) Generators
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Test Case Boilerplate Generator
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Test DSL Generator (Abstraction Layer)
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Test Case Implementation Generator
+						</li>
+					</ul>
+					<aside class="notes"></aside>
+				</section>
+			</section>
+			<section> <!-- Putting it all together -->
+				<section
+					data-autoslide="2000"
+					data-background-color="white"
+					data-background-image="img/lego-bricks.jpg"
+					data-background-size="cover"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/lego-bricks.jpg"
+					data-background-size="cover"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+						<h1> Putting It All Together </h1>
+						<h2> Automation Requirements </h2>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Automation can be launched from the command line
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								An environment variable controls which config file to read
+								(e.g. local, DEV, PERF, STG, PROD, custom, etc.)
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								The framework reads the corresponding config file
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Only environment-specific values are stored in config
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Sensitive information is encrypted (esp. passwords)
+							</li>
+						</ul>
+				</section>
+				<section
+					data-background-color="white"
+					data-background-image="img/lego-bricks.jpg"
+					data-background-size="cover"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+						<h1> Requirements - cont. </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Test cases are tagged / assigned to groups
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Sample groups include <code>smoke</code>, <code>acceptance</code>, 
+								<code>functional</code>, <code>pedantic</code>, <code>regression</code>, 
+								<code>broken</code>, etc.
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Command-line parameter controls which group is executed
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Tests that reveal a defect are tagged as <code>broken</code>
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								The test is also tagged with the defect number
+							</li>
+						</ul>
+				</section>
+				<section
+					data-background-color="white"
+					data-background-image="img/lego-bricks.jpg"
+					data-background-size="cover"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+						<h1> Requirements - cont. </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								<code>broken</code> tests are not run, by default
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								<code>broken</code> tests are coded to have both an expected and an actual result,
+								and to verify that the defect is still present
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								When run, if the behavior is still <code>broken</code>,
+								the test case is marked as <code>skipped</code>
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								If the behavior has changed and the verification fails, the test fails, which 
+								means that manual verification is required to see if the ticket can be closed
+							</li>
+						</ul>
+				</section>
+				<section
+					data-background-color="white"
+					data-background-image="img/lego-bricks.jpg"
+					data-background-size="cover"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+						<h1> Requirements - cont. </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Once a <code>broken</code> test is fixed, the tag is switched to <code>regression</code> 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								The ticket number group is retained, however.
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Every test logs the GIVEN/WHEN/THEN of what it is doing, so that 
+								the results log doubles as documentation of what is tested
+							</li>
+						</ul>
+				</section>
+				<section
+					data-background-color="white"
+					data-background-image="img/lego-bricks.jpg"
+					data-background-size="cover"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+						<h1> Requirements - cont. </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Test cases will <em>never</em> directly interact 
+								with the application under test
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Test cases will <em>always</em> go through the 
+								abstraction layer
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								In the case of API testing, the abstraction layer provides a 
+								DSL for generating requests, and may provide some common 
+								compound request flows
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								In the case of UI testing, the abstraction layer abstracts 
+								windows, pages, features, processes, etc.
+							</li>
+						</ul>
+				</section>
+				<section
+					data-background-color="white"
+					data-background-image="img/lego-bricks.jpg"
+					data-background-size="cover"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> Requirements - cont. </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Standard sets of test cases will be defined in interfaces
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Test classes will implement the relevant interfaces
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							The code will compile when all the test cases are at least declared
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							When it makes sense to do so, use inheritance of test implementations
+							and abstract methods to delegate the nitty-gritty details
+						</li>
+					</ul>
+				</section>
+				<section
+					data-background-color="white"
+					data-background-image="img/lego-bricks.jpg"
+					data-background-size="cover"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+					<h1> Requirements - cont. </h1>
+					<ul>
+						<li class="fragment fade-in-then-semi-out">
+							Unless business constraints prevent it, 
+							every <em>functional</em> test case will create test data 
+							during setup
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							Test records will (usually) follow a naming convention:<br/>
+							<code>{prefix}.{timestamp}.{character-name}</code>
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							If the test case passes, the data
+							created during setup will be deleted
+						</li>
+						<li class="fragment fade-in-then-semi-out">
+							If the test case fails, test records are left intact
+							so that they may be inspected manually after the test run is complete
+						</li>
+					</ul>
+				</section>
+				<section
+					data-background-color="white"
+					data-background-image="img/lego-bricks.jpg"
+					data-background-size="cover"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+						<h1> Requirements - cont. </h1>
+						<ul>
+							<li class="fragment fade-in-then-semi-out">
+								Leftover test records will be periodically purged
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Every test <em>must</em> be independent of every other test 
+								regardless of whether to testing framework allows for 
+								dependent tests
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Functional tests <em>must not</em> depend on anything in the 
+								environment except an account with which to create its test data
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								Tests <em>will be</em> stand-alone - 
+								a separate test for every test condition -
+								No optimizations, combining, stringing together, nothing 
+							</li>
+							<li class="fragment fade-in-then-semi-out">
+								One possible exception to the above is for exhaustive
+								testing that is 100% generated
+							</li>
+						</ul>
+				</section>
+				<section
+					data-autoslide="2000"
+					data-background-color="white"
+					data-background-image="img/thats-all-folks.jpg"
+					data-background-size="cover"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="1"
+					>
+				</section>
+				<section
+					data-transition="fade-in"
+					data-background-color="white"
+					data-background-image="img/thats-all-folks.jpg"
+					data-background-size="cover"
+					data-background-position="right"
+					data-background-repeat="no-repeat"
+					data-background-opacity="0.1"
+					>
+						<ul>
+							<li> Questions <br/>Comments <br/>Concerns <br/>Complements <br/>Criticisms </li>
+							<li> John at Arrowwood dot org </li>
+						</ul>
+				</section>
+			</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				width: 1920,
+				height: 1080,
+				showNotes: false,
+				hash: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
